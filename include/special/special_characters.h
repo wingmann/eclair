@@ -1,6 +1,10 @@
 #ifndef WINGMANN_ECLAIR_SPECIAL_SPECIAL_CHARACTERS_H
 #define WINGMANN_ECLAIR_SPECIAL_SPECIAL_CHARACTERS_H
 
+namespace wingmann::eclair {
 
+
+
+} // namespace wingmann::eclair
 
 #endif // WINGMANN_ECLAIR_SPECIAL_SPECIAL_CHARACTERS_H

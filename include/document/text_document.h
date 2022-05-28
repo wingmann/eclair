@@ -1,6 +1,10 @@
 #ifndef WINGMANN_ECLAIR_INCLUDE_DOCUMENT_TEXT_DOCUMENT_H
 #define WINGMANN_ECLAIR_INCLUDE_DOCUMENT_TEXT_DOCUMENT_H
 
+namespace wingmann::eclair {
 
+
+
+} // namespace wingmann::eclair
 
 #endif // WINGMANN_ECLAIR_INCLUDE_DOCUMENT_TEXT_DOCUMENT_H

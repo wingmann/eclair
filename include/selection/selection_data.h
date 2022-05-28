@@ -1,6 +1,10 @@
 #ifndef WINGMANN_ECLAIR_SELECTION_SELECTION_DATA_H
 #define WINGMANN_ECLAIR_SELECTION_SELECTION_DATA_H
 
+namespace wingmann::eclair {
 
+
+
+} // namespace wingmann::eclair
 
 #endif // WINGMANN_ECLAIR_SELECTION_SELECTION_DATA_H
