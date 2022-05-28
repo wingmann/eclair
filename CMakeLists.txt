@@ -5,8 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(LIB_SFML lib/SFML)
+set(PROJECT_INCLUDE_DIR include ${LIB_SFML}/include)
 
-file(GLOB PROJECT_SOURCES src/*.cpp)
-
-add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
-target_include_directories(${PROJECT_NAME} PUBLIC include ${LIB_SFML}/include)
+add_subdirectory(src)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_INCLUDE_DIR})

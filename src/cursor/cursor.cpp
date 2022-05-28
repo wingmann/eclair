@@ -6,73 +6,73 @@ Cursor::Cursor() : Cursor{0, 0}
 {
 }
 
-Cursor::Cursor(int lineN, int charN) : maxCharNReached{}
+Cursor::Cursor(int lineNumber, int charNumber) : maxCharNumberReached_{}
 {
-    updatePos(lineN, charN);
+    updatePos(lineNumber, charNumber);
 }
 
-void Cursor::setPosition(int lineN, int charN, bool updateMaxChar)
+void Cursor::setPosition(int lineNumber, int charNumber, bool updateMaxChar)
 {
-    updatePos(lineN, charN);
+    updatePos(lineNumber, charNumber);
 
     if (updateMaxChar)
-        setMaxCharNReached(this->charN);
+        setMaxCharNReached(charNumber_);
 }
 
-int Cursor::getLineN()
+int Cursor::getLineN() const
 {
-    return lineN;
+    return lineNumber_;
 }
 
-int Cursor::getCharN()
+int Cursor::getCharN() const
 {
-    return charN;
+    return charNumber_;
 }
 
-void Cursor::setMaxCharNReached(int charN)
+void Cursor::setMaxCharNReached(int charNumber)
 {
-    maxCharNReached = charN;
+    maxCharNumberReached_ = charNumber;
 }
 
-int Cursor::getMaxCharNReached()
+int Cursor::getMaxCharNReached() const
 {
-    return maxCharNReached;
+    return maxCharNumberReached_;
 }
 
 void Cursor::moveUp()
 {
-    updatePos(lineN - 1, charN);
+    updatePos(lineNumber_ - 1, charNumber_);
 }
 
 void Cursor::moveDown()
 {
-    updatePos(lineN + 1, charN);
+    updatePos(lineNumber_ + 1, charNumber_);
 }
 
 void Cursor::moveUpToMaxCharN()
 {
-    updatePos(lineN - 1, maxCharNReached);
+    updatePos(lineNumber_ - 1, maxCharNumberReached_);
 }
 
 void Cursor::moveDownToMaxCharN()
 {
-    updatePos(lineN + 1, maxCharNReached);
+    updatePos(lineNumber_ + 1, maxCharNumberReached_);
 }
 
 void Cursor::moveLeft(bool updateMaxChar)
 {
     if (updateMaxChar)
-        setMaxCharNReached(charN - 1);
+        setMaxCharNReached(charNumber_ - 1);
 
-    updatePos(lineN, charN - 1);
+    updatePos(lineNumber_, charNumber_ - 1);
 }
 
 void Cursor::moveRight(bool updateMaxChar)
 {
     if (updateMaxChar)
-        setMaxCharNReached(charN + 1);
+        setMaxCharNReached(charNumber_ + 1);
 
-    updatePos(lineN, charN + 1);
+    updatePos(lineNumber_, charNumber_ + 1);
 }
 
 void Cursor::moveToEnd(int charsInLine, bool updateMaxChar)
@@ -80,7 +80,7 @@ void Cursor::moveToEnd(int charsInLine, bool updateMaxChar)
     if (updateMaxChar)
         setMaxCharNReached(charsInLine);
 
-    updatePos(lineN, charsInLine);
+    updatePos(lineNumber_, charsInLine);
 }
 
 void Cursor::moveToStart(bool updateMaxChar)
@@ -88,17 +88,17 @@ void Cursor::moveToStart(bool updateMaxChar)
     if (updateMaxChar)
         setMaxCharNReached(0);
 
-    updatePos(lineN, 0);
+    updatePos(lineNumber_, 0);
 }
 
 void Cursor::nextLine()
 {
-    charN = 0;
+    charNumber_ = 0;
     moveDown();
 }
 
-void Cursor::updatePos(int l, int c)
+void Cursor::updatePos(int y, int x)
 {
-    lineN = l;
-    charN = c;
+    lineNumber_ = y;
+    charNumber_ = x;
 }

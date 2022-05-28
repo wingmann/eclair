@@ -7,9 +7,9 @@ namespace wingmann::eclair {
  *
  */
 class Cursor {
-    int lineN;
-    int charN;
-    int maxCharNReached;
+    int lineNumber_{};
+    int charNumber_{};
+    int maxCharNumberReached_;
 
 public:
     /**
@@ -19,10 +19,10 @@ public:
 
     /**
      *
-     * @param lineN
-     * @param charN
+     * @param lineNumber
+     * @param charNumber
      */
-    Cursor(int lineN, int charN);
+    Cursor(int lineNumber, int charNumber);
 
     virtual ~Cursor() = default;
 
@@ -71,21 +71,21 @@ public:
      *
      * @return
      */
-    int getLineN();
+    [[nodiscard]] int getLineN() const;
 
     /**
      *
      * @return
      */
-    int getCharN();
+    [[nodiscard]] int getCharN() const;
 
     /**
      *
-     * @param lineN
-     * @param charN
+     * @param lineNumber
+     * @param charNumber
      * @param updateMaxChar
      */
-    void setPosition(int lineN, int charN, bool updateMaxChar = false);
+    void setPosition(int lineNumber, int charNumber, bool updateMaxChar = false);
 
     /**
      *
@@ -99,23 +99,19 @@ public:
 
     /**
      *
-     * @param charN
+     * @param charNumber
      */
-    void setMaxCharNReached(int charN);
+    void setMaxCharNReached(int charNumber);
 
     /**
      *
      * @return
      */
-    int getMaxCharNReached();
+    [[nodiscard]] int getMaxCharNReached() const;
 
 private:
-    /**
-     *
-     * @param posY
-     * @param posX
-     */
-    void updatePos(int posY, int posX);
+    //
+    void updatePos(int y, int x);
 };
 
 } // namespace wingmann::eclair
